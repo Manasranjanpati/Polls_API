@@ -18,6 +18,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'rest_framework.authtoken',
     'polls',
     'rest_framework',
 ]
@@ -52,6 +54,14 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'pollsapi.wsgi.application'
 
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.permissions.IsAuthenticated',
+        'rest_framework.authentication.SessionAuthentication',
+    )
+}
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
